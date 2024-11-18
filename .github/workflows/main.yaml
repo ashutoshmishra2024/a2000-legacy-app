@@ -1,0 +1,83 @@
+name: Run Jmeter Tests from Config File
+on:
+  push:
+    branches:
+      - main
+  
+jobs:  
+  job1-api:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+          folder: [DeterAPI1]
+    
+    steps:
+      # checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Read and process lines from text file
+        run: |
+          while IFS= read -r line || [ -n "$line" ]; do
+            # Split the line into components
+
+     # - name: Set up AWS CLI
+      #  uses: aws-actions/configure-aws-credentials@v1
+       # with:
+        #  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        #  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         # aws-region: us-east-1
+
+
+      - name: Run Script
+        run: |
+          echo "Processing folder: ${{ matrix.folder }}"
+          if [ -f "${{ matrix.folder }}/script1.sh" ]; then
+            bash "${{ matrix.folder }}/script1.sh"
+            bash "${{ matrix.folder }}/script2.sh"
+          else
+            echo "No script found in ${{ matrix.folder }}"
+          fi
+
+  job2-ui:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder: [DeterUI]
+    
+    steps:
+      # checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run Script
+        run: |
+          echo "Processing folder: ${{ matrix.folder }}"
+          if [ -f "${{ matrix.folder }}/script1.sh" ]; then
+            bash "${{ matrix.folder }}/script1.sh"
+            bash "${{ matrix.folder }}/script2.sh"
+          else
+            echo "No script found in ${{ matrix.folder }}"
+          fi
+
+  job3-api:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder: [DeterAPI2]
+    
+    steps:
+      # checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run Script
+        run: |
+          echo "Processing folder: ${{ matrix.folder }}"
+          if [ -f "${{ matrix.folder }}/script1.sh" ]; then
+            bash "${{ matrix.folder }}/script1.sh"
+            bash "${{ matrix.folder }}/script2.sh"
+            bash "${{ matrix.folder }}/script3.sh"
+          else
+            echo "No script found in ${{ matrix.folder }}"
+          fi

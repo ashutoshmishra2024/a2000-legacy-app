@@ -1,0 +1,5 @@
+a2000***us-east-1*** DeterAPI1- script1.sh,script2.sh
+
+a2000***us-east-1*** DeterUI- script1.sh,script2.sh
+
+a2000***us-east-1*** DeterAPI2- script1.sh,script2.sh
