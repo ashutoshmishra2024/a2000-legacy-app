@@ -16,10 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Read and process lines from text file
-        run: |
-          while IFS= read -r line || [ -n "$line" ]; do
-            # Split the line into components
+    #  - name: Read and process lines from text file
+     #   run: |
+     #     while IFS= read -r line || [ -n "$line" ]; do
+      #      # Split the line into components
 
      # - name: Set up AWS CLI
       #  uses: aws-actions/configure-aws-credentials@v1
