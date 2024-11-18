@@ -34,7 +34,7 @@ jobs:
       - name: Run Script
         run: |
           echo "Processing folder: ${{ matrix.folder }}"
-          if [ -f "${{ matrix.folder }}/script1.sh" ]; then
+          if [ -f "${{ matrix.folder }}/script.sh" ]; then
             bash "${{ matrix.folder }}/script1.sh"
             bash "${{ matrix.folder }}/script2.sh"
           else
@@ -54,7 +54,7 @@ jobs:
       - name: Run Script
         run: |
           echo "Processing folder: ${{ matrix.folder }}"
-          if [ -f "${{ matrix.folder }}/script1.sh" ]; then
+          if [ -f "${{ matrix.folder }}/script.sh" ]; then
             bash "${{ matrix.folder }}/script1.sh"
             bash "${{ matrix.folder }}/script2.sh"
           else
@@ -74,11 +74,10 @@ jobs:
       - name: Run Script
         run: |
           echo "Processing folder: ${{ matrix.folder }}"
-          if [ -f "${{ matrix.folder }}/script1.sh" ]; then
+          if [ -f "${{ matrix.folder }}/script.sh" ]; then
             bash "${{ matrix.folder }}/script1.sh"
             bash "${{ matrix.folder }}/script2.sh"
             bash "${{ matrix.folder }}/script3.sh"
-            jmeter -n -t "${{ matrix.folder }}/stock-sim.jmx -l TestResults.csv
           else
             echo "No script found in ${{ matrix.folder }}"
           fi
