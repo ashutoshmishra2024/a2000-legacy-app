@@ -71,7 +71,7 @@ jobs:
         run: |
           echo "Processing folder: ${{ matrix.folder }}"
           if [ -f "${{ matrix.folder }}/scripts.sh" ]; then
-            
+            bash "${{ matrix.folder }}/scripts.sh"
           else
             echo "No script found in ${{ matrix.folder }}"
           fi
