@@ -39,7 +39,7 @@ jobs:
             bash "${{ matrix.folder }}/script1.sh"
             bash "${{ matrix.folder }}/script2.sh"
           else
-            echo "No script found in ${{ matrix.folder }}"
+            echo "No script found in ${{ matrix.folder }}, skipping..."
           fi
   job2-ui:
     name: job2-api - Independent
