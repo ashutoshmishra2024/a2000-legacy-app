@@ -6,7 +6,8 @@ on:
       - main
   
 jobs:  
-  job1-api-Independent:
+  job1-api:
+    name: job1-api - Independent
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -39,7 +40,8 @@ jobs:
           else
             echo "No script found in ${{ matrix.folder }}"
           fi
-  job2-ui-Independent:
+  job2-ui:
+    name: job2-api - Independent
     #needs: job1-api
     runs-on: ubuntu-latest
     strategy:
