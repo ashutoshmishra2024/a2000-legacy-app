@@ -63,7 +63,8 @@ jobs:
             echo "No script found in ${{ matrix.folder }}"
           fi
   job3-api:
-    needs: job2-ui
+    name: job3-api - Independent
+    #needs: job2-ui
     runs-on: ubuntu-latest
     strategy:
       matrix:
